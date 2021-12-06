@@ -16,13 +16,13 @@ class ScopedProviderPage extends StatelessWidget {
             children: [
               buildScoped(42),
               buildScoped(90),
-              buildScoped(), // throws exception
+              buildScoped(null), // throws exception
             ],
           ),
         ),
       );
 
-  Widget buildScoped([int value]) {
+  Widget buildScoped(int value) {
     final consumer = Consumer(
       builder: (context, watch, child) {
         final number = watch(scopedProvider).toString();

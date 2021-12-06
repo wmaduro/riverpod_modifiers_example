@@ -72,7 +72,7 @@ class StateNotifierPage extends ConsumerWidget {
             const SizedBox(height: 8),
             TextWidget('Doors: $doors'),
             const SizedBox(height: 32),
-            buildButtons(watch),
+            buildButtons(carNotifier),
             const SizedBox(height: 32),
             Slider(
               value: car.doors.toDouble(),
@@ -85,10 +85,9 @@ class StateNotifierPage extends ConsumerWidget {
     );
   }
 
-  Widget buildButtons(watch) {
-    final carNotifier = watch(stateNotifierProvider);
+  Widget buildButtons(carNotifier) {
 
-    return Row(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ButtonWidget(text: 'Increase +5', onClicked: carNotifier.increaseSpeed),
@@ -97,4 +96,17 @@ class StateNotifierPage extends ConsumerWidget {
       ],
     );
   }
+
+  // Widget buildButtons(watch) {
+  //   final carNotifier = watch(stateNotifierProvider);
+  //
+  //   return Column(
+  //     mainAxisAlignment: MainAxisAlignment.center,
+  //     children: [
+  //       ButtonWidget(text: 'Increase +5', onClicked: carNotifier.increaseSpeed),
+  //       const SizedBox(width: 12),
+  //       ButtonWidget(text: 'Hit Brake -30', onClicked: carNotifier.hitBrake),
+  //     ],
+  //   );
+  // }
 }

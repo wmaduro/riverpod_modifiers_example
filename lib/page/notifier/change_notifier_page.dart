@@ -5,18 +5,28 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 
+class Car {
+  int speed;
+  Car({
+    this.speed = 120,
+  });
+}
+
 class CarNotifier extends ChangeNotifier {
-  int _speed = 120;
+  Car _car = Car();
+
+  int speed = 120;
 
   void increase() {
-    _speed += 5;
+    speed += 5;
+    _car.speed+=10;
 
     notifyListeners();
   }
 
   void hitBreak() {
-    _speed = max(0, _speed - 30);
-
+    speed = max(0, speed - 30);
+    _car.speed= max(0, speed - 20);
     notifyListeners();
   }
 
@@ -29,7 +39,7 @@ final carProvider = ChangeNotifierProvider<CarNotifier>((ref) => CarNotifier());
 class ChangeNotifierPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, watch) {
-    final car = watch(carProvider);
+    final _carProvider = watch(carProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -39,16 +49,17 @@ class ChangeNotifierPage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextWidget('Speed: ${car._speed}'),
+            TextWidget('Speed: ${_carProvider.speed}'),
+            TextWidget('Car Speed: ${_carProvider._car.speed}'),
             const SizedBox(height: 8),
-            buildButtons(context, car),
+            buildButtons(context, _carProvider),
           ],
         ),
       ),
     );
   }
 
-  Widget buildButtons(BuildContext context, CarNotifier car) => Row(
+  Widget buildButtons(BuildContext context, CarNotifier car) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ButtonWidget(

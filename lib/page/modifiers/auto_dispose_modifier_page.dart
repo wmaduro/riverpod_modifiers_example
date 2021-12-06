@@ -9,7 +9,7 @@ Future<String> fetchValue() async {
 }
 
 final futureProvider =
-    FutureProvider.autoDispose<String>((ref) => fetchValue());
+    FutureProvider<String>((ref) => fetchValue());
 
 class AutoDisposeModifierPage extends ConsumerWidget {
   @override

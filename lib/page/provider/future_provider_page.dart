@@ -14,14 +14,14 @@ final futureProvider = FutureProvider<int>((ref) => fetchWeather());
 class FutureProviderPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, watch) {
-    final future = watch(futureProvider);
+    final _futureProvider = watch(futureProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: Text('FutureProvider'),
       ),
       body: Center(
-        child: future.when(
+        child: _futureProvider.when(
           data: (value) => TextWidget(value.toString()),
           loading: () => CircularProgressIndicator(),
           error: (e, stack) => TextWidget('Error: $e'),

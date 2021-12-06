@@ -5,7 +5,7 @@ import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 import 'package:riverpod_modifiers_example/widget/user_widget.dart';
 
 Future<User> fetchUser(String username) async {
-  await Future.delayed(Duration(milliseconds: 400));
+  await Future.delayed(Duration(milliseconds: 1000));
 
   return users.firstWhere((user) => user.name == username);
 }

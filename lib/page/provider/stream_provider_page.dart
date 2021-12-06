@@ -4,7 +4,7 @@ import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 
 // StreamProvider.autoDispose: destroys state if no-longer listened
 final streamProvider = StreamProvider<String>((ref) => Stream.periodic(
-      Duration(milliseconds: 400),
+      Duration(milliseconds: 2000),
       (count) => '$count',
     ));
 
@@ -19,9 +19,9 @@ class StreamProviderPage extends ConsumerWidget {
       );
 
   Widget buildStreamWhen(watch) {
-    final stream = watch(streamProvider);
+    final _streamProvider = watch(streamProvider);
 
-    return stream.when(
+    return _streamProvider.when(
       data: (value) => TextWidget(value),
       loading: () => CircularProgressIndicator(),
       error: (e, stack) => TextWidget('Error: $e'),
