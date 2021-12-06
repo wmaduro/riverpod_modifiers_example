@@ -35,8 +35,8 @@ class _FamilyPrimitiveModifierPageState
           children: [
             Container(
               height: 300,
-              child: Consumer(builder: (context, watch, child) {
-                final future = watch(userProvider(username!));
+              child: Consumer(builder: (context, ref, child) {
+                final future = ref.watch(userProvider(username!));
 
                 return future.when(
                   data: (user) => UserWidget(user: user),
