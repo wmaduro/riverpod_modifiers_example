@@ -22,7 +22,7 @@ class ScopedProviderPage extends StatelessWidget {
         ),
       );
 
-  Widget buildScoped(int value) {
+  Widget buildScoped(int? value) {
     final consumer = Consumer(
       builder: (context, watch, child) {
         final number = watch(scopedProvider).toString();

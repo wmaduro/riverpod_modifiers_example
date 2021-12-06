@@ -10,8 +10,8 @@ class UserRequest {
   final int minAge;
 
   const UserRequest({
-    @required this.isFemale,
-    @required this.minAge,
+    required this.isFemale,
+    required this.minAge,
   });
 
   @override
@@ -46,7 +46,7 @@ class FamilyObjectModifierPage extends StatefulWidget {
 class _FamilyObjectModifierPageState extends State<FamilyObjectModifierPage> {
   static final ages = [18, 25, 30, 40];
   bool isFemale = true;
-  int minAge = ages.first;
+  int? minAge = ages.first;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class _FamilyObjectModifierPageState extends State<FamilyObjectModifierPage> {
               height: 300,
               child: Consumer(builder: (context, watch, child) {
                 final userRequest =
-                    UserRequest(isFemale: isFemale, minAge: minAge);
+                    UserRequest(isFemale: isFemale, minAge: minAge!);
                 final future = watch(userProvider(userRequest));
 
                 return future.when(

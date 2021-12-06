@@ -15,8 +15,8 @@ class Car {
   });
 
   Car copy({
-    int speed,
-    int doors,
+    int? speed,
+    int? doors,
   }) =>
       Car(
         speed: speed ?? this.speed,
@@ -49,16 +49,16 @@ class CarNotifier extends StateNotifier<Car> {
 }
 
 final stateNotifierProvider =
-    StateNotifierProvider<CarNotifier>((ref) => CarNotifier());
+    StateNotifierProvider<CarNotifier, Car>((ref) => CarNotifier());
 
 class StateNotifierPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, watch) {
-    final car = watch(stateNotifierProvider.state);
+    final car = watch(stateNotifierProvider);
     final speed = car.speed;
     final doors = car.doors;
 
-    final carNotifier = watch(stateNotifierProvider);
+    final carNotifier = watch(stateNotifierProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(

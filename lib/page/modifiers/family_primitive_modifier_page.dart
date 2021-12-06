@@ -21,7 +21,7 @@ class FamilyPrimitiveModifierPage extends StatefulWidget {
 
 class _FamilyPrimitiveModifierPageState
     extends State<FamilyPrimitiveModifierPage> {
-  String username = users.first.name;
+  String? username = users.first.name;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _FamilyPrimitiveModifierPageState
             Container(
               height: 300,
               child: Consumer(builder: (context, watch, child) {
-                final future = watch(userProvider(username));
+                final future = watch(userProvider(username!));
 
                 return future.when(
                   data: (user) => UserWidget(user: user),

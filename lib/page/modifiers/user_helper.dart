@@ -7,10 +7,10 @@ class User {
   final String gender;
 
   const User({
-    @required this.urlAvatar,
-    @required this.name,
-    @required this.age,
-    @required this.gender,
+    required this.urlAvatar,
+    required this.name,
+    required this.age,
+    required this.gender,
   });
 }
 
