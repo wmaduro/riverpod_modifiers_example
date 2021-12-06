@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 
-final scopedProvider = ScopedProvider<int>((ref) => throw UnimplementedError());
+final scopedProvider = Provider<int>((ref) => throw UnimplementedError());
 
 class ScopedProviderPage extends StatelessWidget {
   @override
@@ -24,8 +24,8 @@ class ScopedProviderPage extends StatelessWidget {
 
   Widget buildScoped(int? value) {
     final consumer = Consumer(
-      builder: (context, watch, child) {
-        final number = watch(scopedProvider).toString();
+      builder: (context, ref, child) {
+        final number = ref.watch(scopedProvider).toString();
 
         return TextWidget(number);
       },

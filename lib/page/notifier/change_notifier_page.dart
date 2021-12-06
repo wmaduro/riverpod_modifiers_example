@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 
@@ -38,8 +38,8 @@ final carProvider = ChangeNotifierProvider<CarNotifier>((ref) => CarNotifier());
 
 class ChangeNotifierPage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    final _carProvider = watch(carProvider);
+  Widget build(BuildContext context, ref) {
+    final _carProvider = ref.watch(carProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -52,26 +52,26 @@ class ChangeNotifierPage extends ConsumerWidget {
             TextWidget('Speed: ${_carProvider.speed}'),
             TextWidget('Car Speed: ${_carProvider._car.speed}'),
             const SizedBox(height: 8),
-            buildButtons(context, _carProvider),
+            buildButtons(ref, _carProvider),
           ],
         ),
       ),
     );
   }
 
-  Widget buildButtons(BuildContext context, CarNotifier car) => Column(
+  Widget buildButtons(WidgetRef ref, CarNotifier car) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ButtonWidget(
             text: 'Increase +5',
-            onClicked: context.read(carProvider).increase,
+            onClicked: ref.read(carProvider).increase,
           ),
           // car.increase: not efficient
           // => button rebuilds everytime if car state changes
           const SizedBox(width: 12),
           ButtonWidget(
             text: 'Hit Brake -30',
-            onClicked: context.read(carProvider).hitBreak,
+            onClicked: ref.read(carProvider).hitBreak,
           ),
         ],
       );

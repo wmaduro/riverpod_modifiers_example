@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 
@@ -66,13 +66,13 @@ final stateNotifierProvider =
 
 class StateNotifierPage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
+  Widget build(BuildContext context, ref) {
     final provider = stateNotifierProvider(1);
-    final car = watch(provider);
+    final car = ref.watch(provider);
     final speed = car.speed;
     final doors = car.doors;
 
-    final carNotifier = watch(provider.notifier);
+    final carNotifier = ref.watch(provider.notifier);
 
     return Scaffold(
       appBar: AppBar(

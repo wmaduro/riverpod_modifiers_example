@@ -13,8 +13,8 @@ final futureProvider = FutureProvider<int>((ref) => fetchWeather());
 
 class FutureProviderPage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    final _futureProvider = watch(futureProvider);
+  Widget build(BuildContext context, ref) {
+    final _futureProvider = ref.watch(futureProvider);
 
     return Scaffold(
       appBar: AppBar(

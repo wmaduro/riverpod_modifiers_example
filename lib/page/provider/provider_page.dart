@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 
 final numberProvider = Provider<int>((ref) { return 999;});
@@ -41,8 +42,8 @@ class ProviderPage extends StatelessWidget {
 
   _consumerText(){
     return Consumer(
-      builder: (_, watch, __) {
-        Widget widgetText = watch(textProvider);
+      builder: (_, ref, __) {
+        Widget widgetText = ref.watch(textProvider);
         return widgetText;
       },
     );
@@ -50,8 +51,8 @@ class ProviderPage extends StatelessWidget {
 
   _myConsumer(){
     return Consumer(
-      builder: (context, watch, child) {
-        final number = watch(numberProvider).toString();
+      builder: (context, ref, child) {
+        final number = ref.watch(numberProvider).toString();
 
         return TextWidget(number);
       },

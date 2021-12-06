@@ -11,7 +11,8 @@ dependencies:
   cupertino_icons: ^1.0.0
 
   # state management
-  flutter_riverpod: ^0.14.0+3
+#  flutter_riverpod: ^0.14.0+3
+  flutter_riverpod: 1.0.0
 
 dev_dependencies:
   flutter_test:
