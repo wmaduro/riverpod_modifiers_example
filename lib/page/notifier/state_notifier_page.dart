@@ -24,8 +24,18 @@ class Car {
       );
 }
 
+final cars = [
+  Car(speed: 1, doors: 1),
+  Car(speed: 2, doors: 2),
+  Car(speed: 3, doors: 3),
+];
+
+_getCarBySpeed(int arg){
+  return cars.firstWhere((car) => car.speed == arg);
+}
+
 class CarNotifier extends StateNotifier<Car> {
-  CarNotifier() : super(Car());
+  CarNotifier({required Car? car}) : super(car ?? Car());
 
   void setDoors(int doors) {
     final newState = state.copy(doors: doors);
@@ -49,16 +59,20 @@ class CarNotifier extends StateNotifier<Car> {
 }
 
 final stateNotifierProvider =
-    StateNotifierProvider<CarNotifier, Car>((ref) => CarNotifier());
+    StateNotifierProvider.family.autoDispose<CarNotifier, Car, int>((ref, arg) {
+      final _car = _getCarBySpeed(arg);
+      return CarNotifier(car: _car);
+    });
 
 class StateNotifierPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, watch) {
-    final car = watch(stateNotifierProvider);
+    final provider = stateNotifierProvider(1);
+    final car = watch(provider);
     final speed = car.speed;
     final doors = car.doors;
 
-    final carNotifier = watch(stateNotifierProvider.notifier);
+    final carNotifier = watch(provider.notifier);
 
     return Scaffold(
       appBar: AppBar(
