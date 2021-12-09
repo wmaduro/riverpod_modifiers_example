@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_modifiers_example/page/components/my_button_and_text.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/auto_dispose_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/family_object_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/family_primitive_modifier_page.dart';
@@ -12,6 +13,8 @@ import 'package:riverpod_modifiers_example/page/provider/scoped_provider_page.da
 import 'package:riverpod_modifiers_example/page/provider/state_provider_page.dart';
 import 'package:riverpod_modifiers_example/page/provider/stream_provider_page.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
+
+import 'page/components/my_button_and_text2.dart';
 
 void main() => runApp(ProviderScope(child: MyApp()));
 
@@ -41,7 +44,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int index = 2;
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -87,35 +90,38 @@ class _HomePageState extends State<HomePage> {
   Widget buildProviderPage(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ButtonWidget(
-            text: 'Provider',
-            onClicked: () => navigateTo(context, ProviderPage()),
-          ),
-          const SizedBox(height: 12),
-          ButtonWidget(
-            text: 'StateProvider',
-            onClicked: () => navigateTo(context, StateProviderPage()),
-          ),
-          const SizedBox(height: 12),
-          ButtonWidget(
-            text: 'FutureProvider',
-            onClicked: () => navigateTo(context, FutureProviderPage()),
-          ),
-          const SizedBox(height: 12),
-          ButtonWidget(
-            text: 'StreamProvider',
-            onClicked: () => navigateTo(context, StreamProviderPage()),
-          ),
-          const SizedBox(height: 12),
-          ButtonWidget(
-            text: 'ScopedProvider',
-            onClicked: () => navigateTo(context, ScopedProviderPage()),
-          ),
-          const SizedBox(height: 12),
-          ButtonWidget(
-            text: 'Combined Providers',
-            onClicked: () => navigateTo(context, CombinedProvidersPage()),
-          ),
+          MyButtonAndTextComponenet(),
+          MyButtonAndTextComponenet2(),
+
+          // ButtonWidget(
+          //   text: 'Provider',
+          //   onClicked: () => navigateTo(context, ProviderPage()),
+          // ),
+          // const SizedBox(height: 12),
+          // ButtonWidget(
+          //   text: 'StateProvider',
+          //   onClicked: () => navigateTo(context, StateProviderPage()),
+          // ),
+          // const SizedBox(height: 12),
+          // ButtonWidget(
+          //   text: 'FutureProvider',
+          //   onClicked: () => navigateTo(context, FutureProviderPage()),
+          // ),
+          // const SizedBox(height: 12),
+          // ButtonWidget(
+          //   text: 'StreamProvider',
+          //   onClicked: () => navigateTo(context, StreamProviderPage()),
+          // ),
+          // const SizedBox(height: 12),
+          // ButtonWidget(
+          //   text: 'ScopedProvider',
+          //   onClicked: () => navigateTo(context, ScopedProviderPage()),
+          // ),
+          // const SizedBox(height: 12),
+          // ButtonWidget(
+          //   text: 'Combined Providers',
+          //   onClicked: () => navigateTo(context, CombinedProvidersPage()),
+          // ),
         ],
       );
 
