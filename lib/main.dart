@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_modifiers_example/page/components/my_button_and_text.dart';
+import 'package:riverpod_modifiers_example/page/components/stateless/my_button_and_text_statless.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/auto_dispose_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/family_object_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/family_primitive_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/notifier/change_notifier_page.dart';
 import 'package:riverpod_modifiers_example/page/notifier/state_notifier_page.dart';
-import 'package:riverpod_modifiers_example/page/provider/combined_provider_page.dart';
-import 'package:riverpod_modifiers_example/page/provider/future_provider_page.dart';
-import 'package:riverpod_modifiers_example/page/provider/provider_page.dart';
-import 'package:riverpod_modifiers_example/page/provider/scoped_provider_page.dart';
-import 'package:riverpod_modifiers_example/page/provider/state_provider_page.dart';
-import 'package:riverpod_modifiers_example/page/provider/stream_provider_page.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
-import 'page/components/my_button_and_text2.dart';
+import 'page/components/provider/my_button_and_text_provider.dart';
+import 'page/components/stateful/my_button_and_text.dart';
+import 'page/components/stateful/my_button_and_text2.dart';
 
 void main() => runApp(ProviderScope(child: MyApp()));
 
@@ -50,7 +46,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(MyApp.title),
+        toolbarHeight: 100,
+        title: SizedBox(height: 100, child: Text(MyApp.title)),
       ),
       body: Center(child: buildPages()),
       bottomNavigationBar: BottomNavigationBar(
@@ -90,8 +87,10 @@ class _HomePageState extends State<HomePage> {
   Widget buildProviderPage(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          MyButtonAndTextComponenet(),
-          MyButtonAndTextComponenet2(),
+          MyButtonAndTextComponent(),
+          MyButtonAndTextComponent2(),
+          MyButtonAndTextComponenetStateLess(),
+          MyButtonAndTextComponenetStateLessProvider(),
 
           // ButtonWidget(
           //   text: 'Provider',
