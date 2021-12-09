@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_modifiers_example/page/components/stateless/my_button_and_text_statless.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/auto_dispose_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/family_object_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/family_primitive_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/notifier/change_notifier_page.dart';
 import 'package:riverpod_modifiers_example/page/notifier/state_notifier_page.dart';
+
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
-import 'page/components/provider/my_button_and_text_provider.dart';
-import 'page/components/stateful/my_button_and_text.dart';
-import 'page/components/stateful/my_button_and_text2.dart';
+import 'page/mytests/components/provider/my_button_and_text_provider.dart';
+import 'page/mytests/components/stateful/my_button_and_text.dart';
+import 'page/mytests/components/stateful/my_button_and_text2.dart';
+import 'page/mytests/components/stateful/not_inherited/my_button_and_text_not_inherited.dart';
+import 'page/mytests/components/stateless/my_button_and_text_statless.dart';
+import 'page/mytests/state_notifier/my_button_and_text_consumewidget _state_notifier.dart';
+import 'page/mytests/state_notifier/my_button_and_text_statless _consumer_state_notifier.dart';
+import 'page/mytests/state_notifier/my_button_and_text_statless _state_notifier.dart';
 
 void main() => runApp(ProviderScope(child: MyApp()));
 
@@ -40,15 +45,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int index = 0;
+  int index = 3;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 100,
-        title: SizedBox(height: 100, child: Text(MyApp.title)),
-      ),
+      // appBar: AppBar(
+      //   title: Text(MyApp.title),
+      // ),
       body: Center(child: buildPages()),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
@@ -65,6 +69,10 @@ class _HomePageState extends State<HomePage> {
             icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
             title: Text('Modifiers'),
           ),
+          BottomNavigationBarItem(
+            icon: Text('Lixo', style: TextStyle(color: Colors.white)),
+            title: Text(''),
+          ),
         ],
         onTap: (int index) => setState(() => this.index = index),
       ),
@@ -79,10 +87,27 @@ class _HomePageState extends State<HomePage> {
         return buildNotifiersPage(context);
       case 2:
         return buildModifiersPage(context);
+      case 3:
+        return buildLixoPage(context);
       default:
         return Container();
     }
   }
+
+  Widget buildLixoPage(BuildContext context) =>
+      Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        MyButtonAndTextComponenetStateLessConsumerStateNotifier(),
+        SizedBox(
+          height: 50,
+        ),
+        MyButtonAndTextComponenetStateLessConsumerStateNotifier(),
+      ]);
+
+  int Function(int) increment = (value) {
+    // print('asdfas');
+    value += 1;
+    return value;
+  };
 
   Widget buildProviderPage(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -91,6 +116,14 @@ class _HomePageState extends State<HomePage> {
           MyButtonAndTextComponent2(),
           MyButtonAndTextComponenetStateLess(),
           MyButtonAndTextComponenetStateLessProvider(),
+          MyButtonAndTextComponentNotInherited(
+            increment: increment,
+            textButton: 'lixoooo',
+            buildTextComonent: (ref) => Text('bosta $ref'),
+          ),
+          MyButtonAndTextComponenetStateLessStateNotifier(),
+          MyButtonAndTextComponenetConsumerWidgetStateNotifier(),
+          MyButtonAndTextComponenetStateLessConsumerStateNotifier(),
 
           // ButtonWidget(
           //   text: 'Provider',
