@@ -13,6 +13,7 @@ import 'page/mytests/components/stateful/my_button_and_text.dart';
 import 'page/mytests/components/stateful/my_button_and_text2.dart';
 import 'page/mytests/components/stateful/not_inherited/my_button_and_text_not_inherited.dart';
 import 'page/mytests/components/stateless/my_button_and_text_statless.dart';
+import 'page/mytests/resolution/responsive_media_query.dart';
 import 'page/mytests/state_notifier/component/buid_lixo_page.dart';
 import 'page/mytests/state_notifier/my_button_and_text_consumewidget _state_notifier.dart';
 import 'page/mytests/state_notifier/component/inheritance/my_component.dart';
@@ -50,34 +51,42 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(MyApp.title),
-      // ),
-      body: Center(child: buildPages()),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: index,
-        items: [
-          BottomNavigationBarItem(
-            icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
-            title: Text('Providers'),
+    return applyResposivenessFactor(
+        context,
+        Scaffold(
+          // appBar: AppBar(
+          //   title: Text(MyApp.title),
+          // ),
+          body:
+              // SingleChildScrollView(
+              // child:
+              Center(
+            child: buildPages(),
           ),
-          BottomNavigationBarItem(
-            icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
-            title: Text('Notifiers'),
+          // ),
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: index,
+            items: [
+              BottomNavigationBarItem(
+                icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
+                title: Text('Providers'),
+              ),
+              BottomNavigationBarItem(
+                icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
+                title: Text('Notifiers'),
+              ),
+              BottomNavigationBarItem(
+                icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
+                title: Text('Modifiers'),
+              ),
+              BottomNavigationBarItem(
+                icon: Text('Lixo', style: TextStyle(color: Colors.white)),
+                title: Text(''),
+              ),
+            ],
+            onTap: (int index) => setState(() => this.index = index),
           ),
-          BottomNavigationBarItem(
-            icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
-            title: Text('Modifiers'),
-          ),
-          BottomNavigationBarItem(
-            icon: Text('Lixo', style: TextStyle(color: Colors.white)),
-            title: Text(''),
-          ),
-        ],
-        onTap: (int index) => setState(() => this.index = index),
-      ),
-    );
+        ));
   }
 
   Widget buildPages() {
@@ -89,7 +98,7 @@ class _HomePageState extends State<HomePage> {
       case 2:
         return buildModifiersPage(context);
       case 3:
-        return buildLixoPage(context);
+        return buildLixoPage();
       default:
         return Container();
     }
@@ -107,14 +116,13 @@ class _HomePageState extends State<HomePage> {
           MyButtonAndTextComponent2(),
           MyButtonAndTextComponenetStateLess(),
           MyButtonAndTextComponenetStateLessProvider(),
-         
+
           MyButtonAndTextComponentNotInherited(
             increment: increment,
             textButton: 'lixoooo',
             buildTextComonent: (ref) => Text('bosta $ref'),
           ),
 
-          
           MyButtonAndTextComponenetStateLessStateNotifier(),
           MyButtonAndTextComponenetConsumerWidgetStateNotifier(),
 

@@ -17,5 +17,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+
+
 flutter:
   uses-material-design: true
+  assets:
+    - assets/alert.png
+    - assets/10dpi.png
+    - assets/25dpi.png
+    - assets/100dpi.png
+    - assets/1000dpi.png
+  
