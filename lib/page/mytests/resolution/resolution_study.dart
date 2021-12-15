@@ -18,25 +18,34 @@ class ResolutionStudyComponent extends StatelessWidget {
       //   'assets/alert.png',
       //   width: 100,
       // ),
-      Text('----------'),
+      // Text('----------'),
 
-      Image.asset('assets/10dpi.png'),
+      // Image.asset('assets/10dpi.png'),
       // Image.asset('assets/25dpi.png'),
       // Image.asset('assets/100dpi.png'),
       // Image.asset('assets/1000dpi.png'),
 
-      Text('Text 10'),
-      Image.asset('assets/10dpi.png', width: 10),
+      // Text('Text 10'),
+      // Image.asset('assets/10dpi.png', width: 10),
+
+      // Text('Text 25'),
+      // Image.asset('assets/10dpi.png', width: 25),
+
       // Image.asset('assets/25dpi.png', width: 10),
       // Image.asset('assets/100dpi.png', width: 10),
       // Image.asset('assets/1000dpi.png', width: 10),
-      Text('Text 50'),
-      Image.asset('assets/10dpi.png', width: 50),
+      // Text('Text 50'),
+      // Image.asset('assets/10dpi.png', width: 50),
       // Image.asset('assets/25dpi.png', width: 50),
       // Image.asset('assets/100dpi.png', width: 50),
       // Image.asset('assets/1000dpi.png', width: 50),
-      Text('Text 100...'),
-      Image.asset('assets/10dpi.png', width: 100),
+
+      // Text('Text 100...'),
+      // Image.asset('assets/10dpi.png', width: 100),
+
+      // Text('Text 200...'),
+      // Image.asset('assets/10dpi.png', width: 200),
+
       // Image.asset('assets/25dpi.png', width: 100),
       // Image.asset('assets/100dpi.png', width: 100),
       // Image.asset('assets/1000dpi.png', width: 100),
@@ -44,7 +53,30 @@ class ResolutionStudyComponent extends StatelessWidget {
       // Image.asset('assets/25dpi.png', width: 900),
       // Image.asset('assets/100dpi.png', width: 900),
       // Image.asset('assets/1000dpi.png', width: 900),
+
+      // Text('Text 900...'),
+      // Image.asset('assets/1000dpi.png', width: 700),
+
+      ...buildElementList(100, 100, 30, '100dpi'),
+      ...buildElementList(100, 100, 30, '10dpi'),
+      ...buildElementList(100, 100, 30, '1000dpi'),
     ];
+  }
+
+  List<Widget> buildElementList(
+    double init,
+    double end,
+    int inc,
+    String imageSrc,
+  ) {
+    List<Widget> list = [];
+
+    for (var i = init; i <= end; i += inc) {
+      list.add(Text('Text $i ($imageSrc)'));
+      list.add(Image.asset('assets/$imageSrc.png', width: i.toDouble()));
+    }
+
+    return list;
   }
 
   _button(BuildContext context) {

@@ -57,13 +57,11 @@ class _HomePageState extends State<HomePage> {
           // appBar: AppBar(
           //   title: Text(MyApp.title),
           // ),
-          body:
-              // SingleChildScrollView(
-              // child:
-              Center(
-            child: buildPages(),
+          body: Center(
+            child: SingleChildScrollView(
+              child: buildPages(),
+            ),
           ),
-          // ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: index,
             items: [
