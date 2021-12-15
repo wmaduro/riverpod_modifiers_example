@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/src/provider.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
-import 'counter/couter_notifier.dart';
+import 'counter/counter_notifier.dart';
 
 class MyButtonAndTextComponenetStateLessStateNotifier extends StatelessWidget {
   @override
@@ -15,7 +15,7 @@ class MyButtonAndTextComponenetStateLessStateNotifier extends StatelessWidget {
       ButtonWidget(
           text: "StateLessStateNotifier",
           onClicked: () {
-            notifier.increment(2);
+            notifier.setCounter(2);
           }),
       Text('text: ${counter}'),
     ]);

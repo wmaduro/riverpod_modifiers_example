@@ -13,8 +13,9 @@ import 'page/mytests/components/stateful/my_button_and_text.dart';
 import 'page/mytests/components/stateful/my_button_and_text2.dart';
 import 'page/mytests/components/stateful/not_inherited/my_button_and_text_not_inherited.dart';
 import 'page/mytests/components/stateless/my_button_and_text_statless.dart';
+import 'page/mytests/state_notifier/component/buid_lixo_page.dart';
 import 'page/mytests/state_notifier/my_button_and_text_consumewidget _state_notifier.dart';
-import 'page/mytests/state_notifier/my_button_and_text_statless _consumer_state_notifier.dart';
+import 'page/mytests/state_notifier/component/inheritance/my_component.dart';
 import 'page/mytests/state_notifier/my_button_and_text_statless _state_notifier.dart';
 
 void main() => runApp(ProviderScope(child: MyApp()));
@@ -94,17 +95,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Widget buildLixoPage(BuildContext context) =>
-      Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        MyButtonAndTextComponenetStateLessConsumerStateNotifier(),
-        SizedBox(
-          height: 50,
-        ),
-        MyButtonAndTextComponenetStateLessConsumerStateNotifier(),
-      ]);
-
   int Function(int) increment = (value) {
-    // print('asdfas');
     value += 1;
     return value;
   };
@@ -116,14 +107,16 @@ class _HomePageState extends State<HomePage> {
           MyButtonAndTextComponent2(),
           MyButtonAndTextComponenetStateLess(),
           MyButtonAndTextComponenetStateLessProvider(),
+         
           MyButtonAndTextComponentNotInherited(
             increment: increment,
             textButton: 'lixoooo',
             buildTextComonent: (ref) => Text('bosta $ref'),
           ),
+
+          
           MyButtonAndTextComponenetStateLessStateNotifier(),
           MyButtonAndTextComponenetConsumerWidgetStateNotifier(),
-          MyButtonAndTextComponenetStateLessConsumerStateNotifier(),
 
           // ButtonWidget(
           //   text: 'Provider',

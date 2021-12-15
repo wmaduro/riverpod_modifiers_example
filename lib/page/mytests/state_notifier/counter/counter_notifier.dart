@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final counterProvider = StateNotifierProvider<CounterNotifier, int>((ref) {
+final counterProvider = StateNotifierProvider.autoDispose<CounterNotifier, int>((ref) {
   return CounterNotifier(1);
 });
 
@@ -11,7 +11,7 @@ class CounterNotifier extends StateNotifier<int> {
     return state;
   }
 
-  increment(int factor) {
-    state+=factor;
+  setCounter(int newCounter) {
+    state += newCounter;
   }
 }
