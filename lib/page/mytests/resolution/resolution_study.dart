@@ -57,8 +57,8 @@ class ResolutionStudyComponent extends StatelessWidget {
       // Text('Text 900...'),
       // Image.asset('assets/1000dpi.png', width: 700),
 
-      ...buildElementList(100, 100, 30, '100dpi'),
       ...buildElementList(100, 100, 30, '10dpi'),
+      ...buildElementList(100, 100, 30, '100dpi'),
       ...buildElementList(100, 100, 30, '1000dpi'),
     ];
   }
@@ -70,6 +70,10 @@ class ResolutionStudyComponent extends StatelessWidget {
     String imageSrc,
   ) {
     List<Widget> list = [];
+
+    list.add(Text('========================='));
+    list.add(Image.asset('assets/$imageSrc.png'));
+    list.add(Text('-----------'));
 
     for (var i = init; i <= end; i += inc) {
       list.add(Text('Text $i ($imageSrc)'));
