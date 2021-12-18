@@ -14,5 +14,5 @@ Widget applyResposivenessFactor(BuildContext context, Widget widget) {
 }
 
 double _calculateResponsivenessFactor() {
-  return 10;
+  return 0;
 }

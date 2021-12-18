@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
+
 class ResolutionStudyComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        _buildSlider(),
         ..._image(context),
         // _button(context),
       ],
+    );
+  }
+
+  Widget _buildSlider() {
+    double currentValue = 1;
+    return Slider(
+      value: currentValue,
+      min:1,
+      max: 5,
+      divisions: 5,
+      onChanged: (double value) {
+        currentValue = value;
+      },
     );
   }
 
@@ -57,9 +72,10 @@ class ResolutionStudyComponent extends StatelessWidget {
       // Text('Text 900...'),
       // Image.asset('assets/1000dpi.png', width: 700),
 
-      ...buildElementList(100, 100, 30, '10dpi'),
-      ...buildElementList(100, 100, 30, '100dpi'),
-      ...buildElementList(100, 100, 30, '1000dpi'),
+      // ...buildElementList(30, 30, 1, '100dpi'),
+      ...buildElementList(100, 100, 1, '10dpi'),
+      // ...buildElementList(100, 100, 30, '100dpi'),
+      // ...buildElementList(100, 100, 30, '1000dpi'),
     ];
   }
 
@@ -77,10 +93,27 @@ class ResolutionStudyComponent extends StatelessWidget {
 
     for (var i = init; i <= end; i += inc) {
       list.add(Text('Text $i ($imageSrc)'));
-      list.add(Image.asset('assets/$imageSrc.png', width: i.toDouble()));
+      list.add(_getImage(imageSrc, i.toInt()));
     }
 
     return list;
+  }
+
+  Widget _getImage(String imageSrc, int i) {
+    return Image.asset(
+      'assets/$imageSrc.png',
+      // width: i.toDouble(),
+      fit: BoxFit.fill,
+      scale: .25,
+    );
+    // return AspectRatio(
+    //   aspectRatio: 1 / 1,
+    //   child: Image.asset(
+    //     'assets/$imageSrc.png',
+    //     width: i.toDouble(),
+    //     fit: BoxFit.fill,
+    //   ),
+    // );
   }
 
   _button(BuildContext context) {
