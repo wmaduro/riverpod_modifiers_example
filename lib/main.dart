@@ -44,6 +44,10 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
+
+  gotoIndex(int index) {
+    createState().index = index;
+  }
 }
 
 class _HomePageState extends State<HomePage> {

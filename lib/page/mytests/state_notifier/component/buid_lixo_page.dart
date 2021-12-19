@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_modifiers_example/page/mytests/extension/extension_study.dart';
+import 'package:riverpod_modifiers_example/page/mytests/extension/view/extension_study_view.dart';
 
 final buildLixoPage = () => Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -11,6 +11,6 @@ final buildLixoPage = () => Column(
         // ),
         // MyComponent2(),
         // ResolutionStudyComponent(),
-        ExtensionStudy(text: 'mytext'),
+        ExtensionStudyscreen(text: 'mytext'),
       ],
     );

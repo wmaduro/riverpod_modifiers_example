@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_modifiers_example/page/mytests/extension/card1.dart';
-import 'package:riverpod_modifiers_example/page/mytests/extension/header.dart';
+import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
-import 'card2.dart';
+import 'widget/card1.dart';
+import 'widget/card2.dart';
+import 'widget/header.dart';
 
-class ExtensionStudy extends StatelessWidget {
+class ExtensionStudyscreen extends StatelessWidget {
   final String text;
-  const ExtensionStudy({required this.text}) : super();
+  const ExtensionStudyscreen({required this.text}) : super();
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,15 @@ class ExtensionStudy extends StatelessWidget {
       children: [
         _head(),
         _getContent(),
+        _leaveHere(),
       ],
+    );
+  }
+
+  _leaveHere() {
+    return ButtonWidget(
+      text: "leave",
+      onClicked: () {},
     );
   }
 
