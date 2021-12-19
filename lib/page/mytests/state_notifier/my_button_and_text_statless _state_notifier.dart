@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/src/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
 import 'counter/counter_notifier.dart';
 
-class MyButtonAndTextComponenetStateLessStateNotifier extends StatelessWidget {
+class MyButtonAndTextComponenetStateLessStateNotifier extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
-    final counter = context.read(counterProvider);
-    final notifier = context.read(counterProvider.notifier);
+  Widget build(context, ref) {
+    final counter = ref.read(counterProvider);
+    final notifier = ref.read(counterProvider.notifier);
 
     return Column(children: [
       ...newElement(),

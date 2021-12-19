@@ -4,14 +4,14 @@ import 'package:riverpod_modifiers_example/page/mytests/extension/controller/ext
 
 class Header extends ConsumerWidget {
   @override
-  Widget build(context, watch) {
+  Widget build(context, ref) {
     return Card(
       margin: EdgeInsets.all(20),
       child: Padding(
         padding: EdgeInsets.all(30),
         child: Column(
           children: [
-            Text('Header: ${watch(extensionProvider)}'),
+            Text('Header: ${ref.watch(extensionProvider)}'),
           ],
         ),
       ),

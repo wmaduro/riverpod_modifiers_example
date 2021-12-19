@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:riverpod_modifiers_example/page/modifiers/user_helper.dart';
 import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 import 'package:riverpod_modifiers_example/widget/user_widget.dart';
@@ -60,10 +61,10 @@ class _FamilyObjectModifierPageState extends State<FamilyObjectModifierPage> {
           children: [
             Container(
               height: 300,
-              child: Consumer(builder: (context, watch, child) {
+              child: Consumer(builder: (context, ref, child) {
                 final userRequest =
                     UserRequest(isFemale: isFemale, minAge: minAge!);
-                final future = watch(userProvider(userRequest));
+                final future = ref.watch(userProvider(userRequest));
 
                 return future.when(
                   data: (user) => UserWidget(user: user),

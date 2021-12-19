@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
 import 'widget/card1.dart';
-import 'widget/card2.dart';
+
 import 'widget/header.dart';
 import 'widget/mycard.dart';
 
@@ -41,15 +41,10 @@ class ExtensionStudyscreen extends StatelessWidget {
           MyCard(
             textButton: 'mc1 but',
             title: 'mc1 title',
-            callback: (value) {
-              
-            },
+            callback: (value) {},
           ),
           Card1(
             textButton: 'card1...',
-          ),
-          Card2(
-            textButton: 'card2...',
           ),
         ],
       ),

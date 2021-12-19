@@ -7,9 +7,9 @@ import 'counter/counter_notifier.dart';
 class MyButtonAndTextComponenetConsumerWidgetStateNotifier
     extends ConsumerWidget {
   @override
-  Widget build(context, watch) {
+  Widget build(context, ref) {
     // final counter = context.read(counterProvider);
-    final notifier = context.read(counterProvider.notifier);
+    final notifier = ref.read(counterProvider.notifier);
 
     return Column(children: [
       ...newElement(),
@@ -18,7 +18,7 @@ class MyButtonAndTextComponenetConsumerWidgetStateNotifier
           onClicked: () {
             notifier.setCounter(1);
           }),
-      Text('text: ${watch(counterProvider)}'),
+      Text('text: ${ref.watch(counterProvider)}'),
     ]);
   }
 

@@ -13,8 +13,8 @@ final futureProvider =
 
 class AutoDisposeModifierPage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    final future = watch(futureProvider);
+  Widget build(BuildContext context, ref) {
+    final future = ref.watch(futureProvider);
 
     return Scaffold(
       appBar: AppBar(

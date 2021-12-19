@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 
 final cityProvider = Provider<String>((ref) => 'Munich');
@@ -18,8 +19,8 @@ final futureCityTemperatureProvider = FutureProvider<int>((ref) async {
 
 class CombinedProvidersPage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    final _futureCityTemperatureProvider = watch(futureCityTemperatureProvider);
+  Widget build(BuildContext context, ref) {
+    final _futureCityTemperatureProvider = ref.watch(futureCityTemperatureProvider);
 
     return Scaffold(
       appBar: AppBar(

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/src/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_modifiers_example/page/mytests/extension/controller/extension_provider.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
-class Card1 extends StatelessWidget {
+class Card1 extends ConsumerWidget {
   final String textButton;
 
   const Card1({required this.textButton}) : super();
 
   @override
-  Widget build(BuildContext context) {
-    final notifier = context.read(extensionProvider.notifier);
+  Widget build(BuildContext context, ref) {
+    final notifier = ref.read(extensionProvider.notifier);
 
     return Card(
       margin: EdgeInsets.zero,
