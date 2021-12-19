@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/src/provider.dart';
+import 'package:riverpod_modifiers_example/page/mytests/extension/controller/extension_provider.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
 class Card2 extends StatelessWidget {
@@ -25,7 +27,9 @@ class Card2 extends StatelessWidget {
   _button(BuildContext context) {
     return ButtonWidget(
       text: "button2",
-      onClicked: () {},
+      onClicked: () {
+        context.read(extensionProvider.notifier).setState('test card2');
+      },
     );
   }
 }
