@@ -6,12 +6,12 @@ class Header extends ConsumerWidget {
   @override
   Widget build(context, ref) {
     return Card(
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.all(5),
       child: Padding(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            Text('Header: ${ref.watch(extensionProvider)}'),
+            Text('Header1: ${ref.watch(extensionProvider)}'),
           ],
         ),
       ),

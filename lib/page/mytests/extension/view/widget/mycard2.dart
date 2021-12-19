@@ -3,24 +3,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_modifiers_example/page/mytests/extension/controller/extension_provider.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
-class MyCard extends ConsumerWidget {
+class MyCard2 extends StatelessWidget {
   final String title;
   final String textButton;
   final Function(String) callback;
-  // final notifier;
 
-  MyCard({
+  MyCard2({
     required this.title,
     required this.textButton,
     required this.callback,
-  }); // : notifier = _getNotifier();
-
-  static _getNotifier() {
-    return extensionProvider.notifier;
-  }
+  });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Card(
       margin: EdgeInsets.zero,
       child: Padding(
@@ -28,20 +25,18 @@ class MyCard extends ConsumerWidget {
         child: Column(
           children: [
             Text('$title'),
-            _button(ref),
+            _button(),
           ],
         ),
       ),
     );
   }
 
-  _button(WidgetRef ref) {
-    var notifier = ref.read(extensionProvider.notifier);
+  _button() {
     return ButtonWidget(
         text: textButton,
         onClicked: () {
           callback(title);
-          notifier.setState(title);
         });
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final extensionProvider =
@@ -9,7 +11,7 @@ class ExtensionNotifier extends StateNotifier<String> {
   ExtensionNotifier(String state) : super(state);
 
   setState(String string) {
-    state = string;
+    state = '$string - ${Random().nextInt(100)}';
   }
 
   @override

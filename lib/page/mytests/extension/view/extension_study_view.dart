@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_modifiers_example/widget/button_widget.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_modifiers_example/page/mytests/extension/controller/extension_provider.dart';
+import 'package:riverpod_modifiers_example/page/mytests/extension/view/widget/mycard2.dart';
 
 import 'widget/card1.dart';
 
 import 'widget/header.dart';
+import 'widget/header2.dart';
 import 'widget/mycard.dart';
 
 class ExtensionStudyscreen extends StatelessWidget {
@@ -12,37 +15,48 @@ class ExtensionStudyscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('resenhando a tela interia...');
     return Column(
       children: [
-        _head(),
-        _getContent(),
-        _leaveHere(),
+        _buildHead1(),
+        _buildHead2(),
+        _buildCards(),
       ],
     );
   }
 
-  _leaveHere() {
-    return ButtonWidget(
-      text: "leave",
-      onClicked: () {},
-    );
-  }
-
-  _head() {
+  _buildHead1() {
     return Header();
   }
 
-  _getContent() {
+  Widget _buildHead2() {
+    return Consumer(builder: (_, ref, __) {
+      String s = ref.watch(extensionProvider);
+      return Header2(s);
+    });
+  }
+
+  _buildCards() {
     return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
+      scrollDirection: Axis.vertical,
+      child: Column(
         children: [
-          Text('text extension'),
+          // Text('text extension'),
           MyCard(
-            textButton: 'mc1 but',
-            title: 'mc1 title',
-            callback: (value) {},
+            textButton: 'mycard1',
+            title: 'mycard1',
+            callback: (value) {
+              print('callback from mycard1');
+            },
           ),
+          MyCard2(
+            textButton: 'mycard2',
+            title: 'mycard2',
+            callback: (value) {
+              _callFunction();
+            },
+          ),
+
           Card1(
             textButton: 'card1...',
           ),
@@ -50,4 +64,6 @@ class ExtensionStudyscreen extends StatelessWidget {
       ),
     );
   }
+
+  _callFunction() {}
 }
