@@ -40,3 +40,7 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 lib/main.dart
+test/page/mytests/golden_study/failures/simple_red_text_isolatedDiff.png
+test/page/mytests/golden_study/failures/simple_red_text_maskedDiff.png
+test/page/mytests/golden_study/failures/simple_red_text_masterImage.png
+test/page/mytests/golden_study/failures/simple_red_text_testImage.png
