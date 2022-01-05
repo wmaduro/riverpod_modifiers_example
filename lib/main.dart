@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/auto_dispose_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/family_object_modifier_page.dart';
 import 'package:riverpod_modifiers_example/page/modifiers/family_primitive_modifier_page.dart';
+import 'package:riverpod_modifiers_example/page/mytests/golden_study/golden_study_screen.dart';
 import 'package:riverpod_modifiers_example/page/notifier/change_notifier_page.dart';
 import 'package:riverpod_modifiers_example/page/notifier/state_notifier_page.dart';
 
@@ -13,6 +14,7 @@ import 'page/mytests/components/stateful/my_button_and_text.dart';
 import 'page/mytests/components/stateful/my_button_and_text2.dart';
 import 'page/mytests/components/stateful/not_inherited/my_button_and_text_not_inherited.dart';
 import 'page/mytests/components/stateless/my_button_and_text_statless.dart';
+
 import 'page/mytests/resolution/responsive_media_query.dart';
 import 'page/mytests/state_notifier/component/buid_lixo_page.dart';
 import 'page/mytests/state_notifier/my_button_and_text_consumewidget _state_notifier.dart';
@@ -51,7 +53,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int index = 3;
+  int index = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -66,28 +68,28 @@ class _HomePageState extends State<HomePage> {
               child: buildPages(),
             ),
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: index,
-            items: [
-              BottomNavigationBarItem(
-                icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
-                title: Text('Providers'),
-              ),
-              BottomNavigationBarItem(
-                icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
-                title: Text('Notifiers'),
-              ),
-              BottomNavigationBarItem(
-                icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
-                title: Text('Modifiers'),
-              ),
-              BottomNavigationBarItem(
-                icon: Text('Lixo', style: TextStyle(color: Colors.white)),
-                title: Text(''),
-              ),
-            ],
-            onTap: (int index) => setState(() => this.index = index),
-          ),
+          // bottomNavigationBar: BottomNavigationBar(
+          //   currentIndex: index,
+          //   items: [
+          //     BottomNavigationBarItem(
+          //       icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
+          //       title: Text('Providers'),
+          //     ),
+          //     BottomNavigationBarItem(
+          //       icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
+          //       title: Text('Notifiers'),
+          //     ),
+          //     BottomNavigationBarItem(
+          //       icon: Text('Riverpod', style: TextStyle(color: Colors.white)),
+          //       title: Text('Modifiers'),
+          //     ),
+          //     BottomNavigationBarItem(
+          //       icon: Text('Lixo', style: TextStyle(color: Colors.white)),
+          //       title: Text(''),
+          //     ),
+          //   ],
+          //   onTap: (int index) => setState(() => this.index = index),
+          // ),
         ));
   }
 
@@ -101,6 +103,8 @@ class _HomePageState extends State<HomePage> {
         return buildModifiersPage(context);
       case 3:
         return buildLixoPage();
+      case 4:
+        return buildSimpleTextcreen();
       default:
         return Container();
     }
@@ -195,8 +199,7 @@ class _HomePageState extends State<HomePage> {
         ],
       );
 
-  void navigateTo(BuildContext context, Widget page) =>
-      Navigator.of(context).push(
+  void navigateTo(BuildContext context, Widget page) => Navigator.of(context).push(
         MaterialPageRoute(builder: (BuildContext context) => page),
       );
 }
