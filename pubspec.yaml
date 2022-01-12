@@ -13,6 +13,7 @@ dependencies:
   # state management
   flutter_riverpod: 1.0.0
   auto_size_text: ^3.0.0
+  logger:
 
 dev_dependencies:
   flutter_test:

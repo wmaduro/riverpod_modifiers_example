@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:riverpod_modifiers_example/page/mytests/appbar_responsiveness/myapp_appbar_responseive.dart';
+
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
 class HomePageAppBarResponsiveness extends StatefulWidget {
@@ -13,34 +16,40 @@ class _HomePageAppBarResponsivenessState extends State<HomePageAppBarResponsiven
   double appBarHeight = 200;
   String lixo = 'responsiveness';
 
-  changeAppbarHeight(double value) {
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  _changeAppbarHeight() {
     setState(() {
-      appBarHeight = value;
-      lixo = 'bosta ${Random().nextInt(100)}';
+      final randomValue = Random().nextInt(100) + 100;
+      appBarHeight = randomValue.toDouble();
+      lixo = 'bosta $randomValue';
+    });
+  }
+
+  _startTimer() async {
+    Timer.periodic(Duration(seconds: 2), (timer) {
+      _changeAppbarHeight();
+      // myLogger.d('${timer}');
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return _responsiveness();
-    // return _silverAppBarScafold();
   }
 
   Widget _responsiveness() {
-    return
-        // applyResposivenessFactor(
-        //     context,
-        Scaffold(
+    return Scaffold(
       appBar: buildAppBar(context),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ButtonWidget(
-                  text: lixo,
-                  onClicked: () {
-                    changeAppbarHeight(400);
-                  }),
+              ButtonWidget(text: lixo, onClicked: () {}),
               buildSimpleTextcreen(),
             ],
           ),

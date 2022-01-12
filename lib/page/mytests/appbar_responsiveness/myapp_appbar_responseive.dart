@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 import 'homepage_appbar_responsiveness.dart';
 
+final myLogger = Logger();
+
 class MyAppAppBarResponseive extends StatelessWidget {
   static final String title = 'Riverpod Example';
-
   @override
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
