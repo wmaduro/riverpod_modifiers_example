@@ -5,6 +5,9 @@ import 'homepage_appbar_responsiveness.dart';
 
 final myLogger = Logger();
 
+// myLogger.d();
+final myPrint = (String string) => {print(string)};
+
 class MyAppAppBarResponseive extends StatelessWidget {
   static final String title = 'Riverpod Example';
   @override
