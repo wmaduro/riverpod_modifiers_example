@@ -16,7 +16,7 @@ class HomePageAppBarResponsiveness extends StatefulWidget {
 
 class _HomePageAppBarResponsivenessState extends State<HomePageAppBarResponsiveness> {
   String _buttonText = 'init...';
-  double _appBarHeight = 100;
+  String _mainText = " ";
 
   @override
   void initState() {
@@ -25,15 +25,17 @@ class _HomePageAppBarResponsivenessState extends State<HomePageAppBarResponsiven
   }
 
   _changeAppbarHeight() {
+    final maxTextLength = 260;
     setState(() {
       final randomValue = Random().nextInt(100) + 100;
-      _appBarHeight = randomValue.toDouble();
+      _mainText = _mainText.length > maxTextLength ? "" : ' | teste ----------- $_mainText ${randomValue.toDouble()}';
+      _mainText = '(${_mainText.length}) $_mainText';
       _buttonText = 'random $randomValue';
     });
   }
 
   _startTimer() async {
-    Timer.periodic(Duration(seconds: 2), (timer) {
+    Timer.periodic(Duration(seconds: 1), (timer) {
       _changeAppbarHeight();
     });
   }
@@ -41,7 +43,7 @@ class _HomePageAppBarResponsivenessState extends State<HomePageAppBarResponsiven
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarContentFactory(_appBarHeight).appBar,
+      appBar: appBarContentFactory(_mainText).appBar,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
