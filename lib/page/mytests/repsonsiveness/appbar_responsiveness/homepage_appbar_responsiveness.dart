@@ -2,8 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:riverpod_modifiers_example/page/mytests/appbar_responsiveness/widgets/appbar_content.dart';
-import 'package:riverpod_modifiers_example/page/mytests/appbar_responsiveness/widgets/body_content.dart';
+
+import 'widgets/appbar_content.dart';
+import 'widgets/body_content.dart';
 
 class HomePageAppBarResponsiveness extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class HomePageAppBarResponsiveness extends StatefulWidget {
 }
 
 class _HomePageAppBarResponsivenessState extends State<HomePageAppBarResponsiveness> {
-  String _buttonText = 'init...';
+  String _buttonText = 'init..';
   String _headerText = "";
   String _bodyText = "";
 
@@ -22,8 +23,9 @@ class _HomePageAppBarResponsivenessState extends State<HomePageAppBarResponsiven
   }
 
   _refreshHeaderText(double value) {
-    final maxTextLength = 160;
-    _headerText = _headerText.length > maxTextLength ? "" : ' | teste ---- $_headerText ${value.toDouble()}';
+    final maxTextLength = 960;
+    _headerText =
+        _headerText.length > maxTextLength ? "" : ' | teste -------------- kjkjhkj $_headerText ${value.toDouble()}';
     _headerText = '(${_headerText.length}) $_headerText';
   }
 
@@ -48,12 +50,15 @@ class _HomePageAppBarResponsivenessState extends State<HomePageAppBarResponsiven
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarContentFactory(_headerText).appBar,
-      body: bodyContent(
-        buttonText: _buttonText,
-        onClick: this._refreshState,
-        contentText: _headerText,
-      ),
-    );
+        appBar: appBarContentFactory(_headerText).appBar,
+        body: Column(
+          children: [
+            bodyContent(
+              buttonText: _buttonText,
+              onClick: this._refreshState,
+              contentText: _headerText,
+            ),
+          ],
+        ));
   }
 }

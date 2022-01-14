@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
-import 'homepage_appbar_responsiveness.dart';
+import 'appbar_responsiveness/homepage_appbar_responsiveness.dart';
+import 'flexible/homepage_lixo.dart';
 
 final myLogger = Logger();
 
@@ -9,11 +10,9 @@ final myLogger = Logger();
 final myPrint = (String string) => {print(string)};
 
 class MyAppAppBarResponseive extends StatelessWidget {
-  static final String title = 'Riverpod Example';
   @override
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: title,
         theme: ThemeData(
           primaryColor: Colors.black,
           primarySwatch: Colors.red,
@@ -23,6 +22,7 @@ class MyAppAppBarResponseive extends StatelessWidget {
             unselectedItemColor: Colors.white70,
           ),
         ),
-        home: HomePageAppBarResponsiveness(),
+        // home: HomePageAppBarResponsiveness(),
+        home: HomePageLixo(),
       );
 }

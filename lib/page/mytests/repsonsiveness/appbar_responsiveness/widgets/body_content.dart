@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_modifiers_example/page/mytests/appbar_responsiveness/widgets/widget/box_component.dart';
+
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
+
+import 'components/box_component.dart';
 
 final bodyContent = ({
   required String buttonText,
   required Function() onClick,
   required String contentText,
 }) =>
-    _center(
-      child: Row(
+    _laytout1(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -19,13 +21,17 @@ final bodyContent = ({
           BoxComponent(
             content: Text(contentText),
           ),
-          Text('maduro'),
         ],
       ),
     );
 
-Widget _center({required Widget child}) {
-  return Center(
-    child: child,
+Widget _laytout1({required Widget child}) {
+  return Expanded(
+    child: SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Center(
+        child: child,
+      ),
+    ),
   );
 }

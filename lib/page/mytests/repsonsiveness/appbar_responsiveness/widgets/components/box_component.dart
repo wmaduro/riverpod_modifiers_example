@@ -8,7 +8,7 @@ class BoxComponent extends StatelessWidget {
   const BoxComponent({
     required this.content,
     this.color = Colors.amber,
-    this.sideSize = 50,
+    this.sideSize = 100,
   }) : super();
 
   @override
@@ -16,7 +16,6 @@ class BoxComponent extends StatelessWidget {
     return Container(
       color: Colors.amber,
       width: sideSize,
-      height: sideSize,
       child: content,
     );
   }
