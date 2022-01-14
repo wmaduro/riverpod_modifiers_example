@@ -14,20 +14,41 @@ class _AppBarContent {
   AppBar get appBar => _appBar;
 
   _AppBarContent({required String mainText}) {
+    final titleWidget = _headerContent(
+      mainText: mainText,
+      isAutoSizeText: false,
+    );
+
     _appBar = AppBar(
-      toolbarHeight: _calculateHeight(),
+      toolbarHeight: _calculateHeight(mainText.length),
       leading: IconButton(
         icon: Icon(
           Icons.arrow_back_rounded,
         ),
         onPressed: () => {}, //Navigator.of(context).pop(),
       ),
-      title: _column([_mainItem(mainText), _subItem()]),
+      title: titleWidget,
     );
   }
 
-  _calculateHeight() {
-    return 300.0;
+  Widget _headerContent({
+    required bool isAutoSizeText,
+    required String mainText,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _mainItem(
+          mainText,
+          isAutoSizeText,
+        ),
+        _subItem(isAutoSizeText)
+      ],
+    );
+  }
+
+  _calculateHeight(int mainTextLength) {
+    return 100.0;
   }
 
   Widget _expanded(Widget w) {
@@ -36,20 +57,11 @@ class _AppBarContent {
     );
   }
 
-  Widget _column(List<Widget> wList) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [...wList],
-    );
-  }
-
-  bool isAutoSizeText = true;
-
-  Widget _mainItem(String mainText) {
+  Widget _mainItem(String mainText, bool isAutoSizeText) {
     return _getTextGlobal(mainText, _mainItemSize, isAutoSizeText);
   }
 
-  Widget _subItem() {
+  Widget _subItem(bool isAutoSizeText) {
     return _getTextGlobal(_subContent(), _subItemSize, isAutoSizeText);
   }
 
