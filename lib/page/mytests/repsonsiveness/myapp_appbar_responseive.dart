@@ -22,7 +22,7 @@ class MyAppAppBarResponseive extends StatelessWidget {
             unselectedItemColor: Colors.white70,
           ),
         ),
-        // home: HomePageAppBarResponsiveness(),
-        home: HomePageLixo(),
+        home: HomePageAppBarResponsiveness(),
+        // home: HomePageLixo(),
       );
 }

@@ -50,15 +50,12 @@ class _HomePageAppBarResponsivenessState extends State<HomePageAppBarResponsiven
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBarContentFactory(_headerText).appBar,
-        body: Column(
-          children: [
-            bodyContent(
-              buttonText: _buttonText,
-              onClick: this._refreshState,
-              contentText: _headerText,
-            ),
-          ],
-        ));
+      appBar: appBarContentFactory(_headerText).appBar,
+      body: bodyContent(
+        buttonText: _buttonText,
+        onClick: this._refreshState,
+        contentText: _headerText,
+      ),
+    );
   }
 }
