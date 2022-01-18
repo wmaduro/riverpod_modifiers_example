@@ -23,10 +23,10 @@ class MyThemes {
   static final lightThemeData = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme().copyWith(
-        // headline1: TextStyle(
-        //   fontSize: 20,
-        //   color: Colors.redAccent,
-        // ),
-        ),
+      headline1: TextStyle(
+        fontSize: 20,
+        color: Colors.redAccent,
+      ),
+    ),
   );
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_modifiers_example/page/mytests/theme_study/theme_provider.dart';
-import 'package:riverpod_modifiers_example/page/mytests/theme_study/text_theme_extention.dart';
+import 'package:riverpod_modifiers_example/page/mytests/theme_study/extension/theme_provider.dart';
+import 'package:riverpod_modifiers_example/page/mytests/theme_study/extension/text_theme_extention.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
 class HomePageThemeStudy extends ConsumerWidget {
