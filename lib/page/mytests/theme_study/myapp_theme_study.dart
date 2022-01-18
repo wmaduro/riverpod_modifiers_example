@@ -14,9 +14,7 @@ class MyAppThemeStudy extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // themeMode: ThemeMode.light,
       theme: ref.watch(themeDataNotifierProvider),
-      // darkTheme: ThemeData.dark(),
       home: HomePageThemeStudy(),
     );
   }
