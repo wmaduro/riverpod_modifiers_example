@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
-class HomePageContextStudy extends ConsumerWidget {
-  @override
-  Widget build(BuildContext context, ref) {
-    final theme = Theme.of(context);
+import 'utils.dart';
 
+class HomePageContextStudy extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    myLogContext(context, this);
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ButtonWidget(
-              text: 'CONTEXT TEXT',
+              text: 'snake bar',
               onClicked: () {
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
               },
             ),
-            _buildButtonGotoLixoPage(context),
+            _buildButtonGotoLixoPage(context, 'lixo'),
+            _buildButtonGotoLixoPage(context, 'lixo2'),
           ],
         ),
       ),
@@ -26,11 +28,11 @@ class HomePageContextStudy extends ConsumerWidget {
   }
 }
 
-Widget _buildButtonGotoLixoPage(BuildContext context) {
+Widget _buildButtonGotoLixoPage(BuildContext context, String path) {
   return ButtonWidget(
-    text: 'Lixo Page',
+    text: '$path page',
     onClicked: () {
-      Navigator.pushNamed(context, '/lixo');
+      Navigator.pushNamed(context, '/$path');
     },
   );
 }
