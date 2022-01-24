@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_modifiers_example/page/mytests/context_study/utils.dart';
+import 'package:riverpod_modifiers_example/page/mytests/context_study/utils/utils.dart';
 
-class LixoPage2ContextStudy extends StatelessWidget {
-  const LixoPage2ContextStudy({Key? key}) : super(key: key);
+class LixoPageContextStudy extends StatelessWidget {
+  const LixoPageContextStudy({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class LixoPage2ContextStudy extends StatelessWidget {
             child: Icon(Icons.arrow_back_ios_new)),
       ),
       body: Container(
-        child: Text('lixo page 2'),
+        child: Text('lixo page'),
       ),
     );
   }

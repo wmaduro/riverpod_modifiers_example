@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_modifiers_example/page/mytests/context_study/utils/utils.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
-
-import 'utils.dart';
 
 class HomePageContextStudy extends StatelessWidget {
   @override
