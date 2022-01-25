@@ -21,8 +21,8 @@ class LixoPageContextStudy extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('lixo'),
             buildNavigationButton(
-              context: context,
               path: '',
             ),
           ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_modifiers_example/page/mytests/context_study/extenstion/build_context_extension.dart';
+import 'package:riverpod_modifiers_example/page/mytests/context_study/extenstion/text_theme_extension.dart';
 import 'package:riverpod_modifiers_example/page/mytests/context_study/pages/components/my_button.dart';
 import 'package:riverpod_modifiers_example/page/mytests/context_study/utils/utils.dart';
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
@@ -20,11 +22,9 @@ class HomePageContextStudy extends StatelessWidget {
               },
             ),
             buildNavigationButton(
-              context: context,
               path: 'lixo',
             ),
             buildNavigationButton(
-              context: context,
               path: 'lixo2',
             ),
           ],
