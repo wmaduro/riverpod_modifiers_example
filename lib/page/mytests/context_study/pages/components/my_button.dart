@@ -5,7 +5,10 @@ Widget buildNavigationButton({
   required String path,
 }) {
   return ElevatedButton(
-    child: Text('$path page'),
+    child: Text(
+      '$path page',
+      style: Theme.of(context).textTheme.headline3,
+    ),
     onPressed: () {
       _onPressed(context, path);
     },
