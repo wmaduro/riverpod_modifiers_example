@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_modifiers_example/page/mytests/context_study/utils/utils.dart';
 
+import 'components/my_button.dart';
+
 class LixoPageContextStudy extends StatelessWidget {
   const LixoPageContextStudy({Key? key}) : super(key: key);
 
@@ -15,8 +17,16 @@ class LixoPageContextStudy extends StatelessWidget {
             },
             child: Icon(Icons.arrow_back_ios_new)),
       ),
-      body: Container(
-        child: Text('lixo page'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            buildNavigationButton(
+              context: context,
+              path: '',
+            ),
+          ],
+        ),
       ),
     );
   }
