@@ -18,6 +18,8 @@ void main() {
   testWidgets(
     'check if text will change after click correctly',
     (tester) async {
+      //maduro 01
+      
       // await tester.pumpWidget(
       //   ProviderScope(
       //     child: MyAppContextStudy(),
