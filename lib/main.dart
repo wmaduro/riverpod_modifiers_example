@@ -17,6 +17,8 @@ void main() => runApp(ProviderScope(child: MyApp()));
 
 class MyApp extends StatelessWidget {
   static final String title = 'Riverpod Example';
+  //WMADURO - 01
+  //TESTE01
 
   @override
   Widget build(BuildContext context) => MaterialApp(
