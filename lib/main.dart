@@ -17,6 +17,7 @@ void main() => runApp(ProviderScope(child: MyApp()));
 
 class MyApp extends StatelessWidget {
   static final String title = 'Riverpod Example';
+  //WMADURO-FFSI - 01
 
   @override
   Widget build(BuildContext context) => MaterialApp(
@@ -154,8 +155,7 @@ class _HomePageState extends State<HomePage> {
         ],
       );
 
-  void navigateTo(BuildContext context, Widget page) =>
-      Navigator.of(context).push(
+  void navigateTo(BuildContext context, Widget page) => Navigator.of(context).push(
         MaterialPageRoute(builder: (BuildContext context) => page),
       );
 }
