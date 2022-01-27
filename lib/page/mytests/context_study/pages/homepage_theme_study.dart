@@ -15,6 +15,11 @@ class HomePageContextStudy extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ElevatedButton(
+              child: Text('Update'),
+              onPressed: () {},
+            ),
+            Text('bosta'),
             ButtonWidget(
               text: 'snake bar',
               onClicked: () {
