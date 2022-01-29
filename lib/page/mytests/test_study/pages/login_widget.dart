@@ -30,7 +30,6 @@ class _LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<_LoginScreen> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
   bool _isObscure = true;
   bool _isVisible = false;
 
