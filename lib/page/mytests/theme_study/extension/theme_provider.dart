@@ -17,8 +17,8 @@ final themeDataNotifierProvider = StateNotifierProvider<ThemeDataNotifier, Theme
 
 class MyThemes {
   static final darkThemeData = ThemeData(
-    scaffoldBackgroundColor: Colors.amber[800],
-  );
+      // scaffoldBackgroundColor: Colors.amber[800],
+      );
 
   static final lightThemeData = ThemeData(
     scaffoldBackgroundColor: Colors.white,
