@@ -5,7 +5,7 @@ import 'package:riverpod_modifiers_example/page/mytests/context_study/utils/util
 import 'package:riverpod_modifiers_example/page/mytests/theme_study/extension/theme_provider.dart';
 
 import 'pages/lixo_page_testing_sutdy.dart';
-import 'pages/login_widget.dart';
+import 'pages/login_page.dart';
 
 final myLogger = Logger();
 
