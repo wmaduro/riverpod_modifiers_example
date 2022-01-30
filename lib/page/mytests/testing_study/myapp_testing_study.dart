@@ -4,9 +4,9 @@ import 'package:logger/logger.dart';
 import 'package:riverpod_modifiers_example/page/mytests/context_study/utils/utils.dart';
 import 'package:riverpod_modifiers_example/page/mytests/theme_study/extension/theme_provider.dart';
 
-import 'pages/homepage_testing_study.dart';
+import 'pages/login_page_testing_study.dart';
 
-import 'pages/lixopage_testing_sutdy.dart';
+import 'pages/lixo_page_testing_sutdy.dart';
 import 'pages/login_widget.dart';
 
 final myLogger = Logger();

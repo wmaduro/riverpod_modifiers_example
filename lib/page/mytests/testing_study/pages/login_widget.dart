@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'lixopage_testing_sutdy.dart';
+import 'lixo_page_testing_sutdy.dart';
 
 Widget loginPage = Scaffold(
   resizeToAvoidBottomInset: true,
@@ -41,8 +41,8 @@ class _LoginScreenState extends State<_LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    usernameController.text = fetchCredentials()[0];
-    passwordController.text = fetchCredentials()[1];
+    // usernameController.text = fetchCredentials()[0];
+    // passwordController.text = fetchCredentials()[1];
 
     return SingleChildScrollView(
         reverse: true,
