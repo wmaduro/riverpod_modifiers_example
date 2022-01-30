@@ -8,7 +8,7 @@ import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 
 import 'login_widget.dart';
 
-class HomePageTestStudy extends StatelessWidget {
+class HomePageTestingStudy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     myLogContext(context, this);

@@ -3,8 +3,8 @@ import 'package:riverpod_modifiers_example/page/mytests/context_study/utils/util
 
 import 'components/my_button.dart';
 
-class LixoPageTestStudy extends StatelessWidget {
-  const LixoPageTestStudy({Key? key}) : super(key: key);
+class LixoPageTestingStudy extends StatelessWidget {
+  const LixoPageTestingStudy({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

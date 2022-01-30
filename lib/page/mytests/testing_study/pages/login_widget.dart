@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'lixopage_test_sutdy.dart';
+import 'lixopage_testing_sutdy.dart';
 
 Widget loginPage = Scaffold(
   resizeToAvoidBottomInset: true,
@@ -160,7 +160,7 @@ class _LoginScreenState extends State<_LoginScreen> {
                           passwordController.text == fetchCredentials()[1]) {
                         Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => LixoPageTestStudy()),
+                          MaterialPageRoute(builder: (context) => LixoPageTestingStudy()),
                           (Route<dynamic> route) => false,
                         );
                       } else {
