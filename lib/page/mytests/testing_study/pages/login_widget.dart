@@ -41,8 +41,8 @@ class _LoginScreenState extends State<_LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // usernameController.text = fetchCredentials()[0];
-    // passwordController.text = fetchCredentials()[1];
+    usernameController.text = fetchCredentials()[0];
+    passwordController.text = fetchCredentials()[1];
 
     return SingleChildScrollView(
         reverse: true,
