@@ -12,7 +12,7 @@ Future<int> fetchWeather(String city) async {
 }
 
 final futureCityTemperatureProvider = FutureProvider<int>((ref) async {
-  final cityTemperature = ref.watch(cityProvider);
+  String cityTemperature = ref.watch(cityProvider);
 
   return fetchWeather(cityTemperature);
 });

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:riverpod_modifiers_example/widget/button_widget.dart';
 import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 
@@ -19,14 +20,14 @@ class CarNotifier extends ChangeNotifier {
 
   void increase() {
     speed += 5;
-    _car.speed+=10;
+    _car.speed += 10;
 
     notifyListeners();
   }
 
   void hitBreak() {
     speed = max(0, speed - 30);
-    _car.speed= max(0, speed - 20);
+    _car.speed = max(0, speed - 20);
     notifyListeners();
   }
 
