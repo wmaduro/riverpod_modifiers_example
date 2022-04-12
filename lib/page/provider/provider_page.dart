@@ -3,9 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:riverpod_modifiers_example/widget/text_widget.dart';
 
-final numberProvider = Provider<int>((ref) {
-  return 999;
-});
+final numberProvider = Provider<int>((ref) { return 999;});
 
 final textProvider = Provider<Widget>((_) => Text('teste'));
 
@@ -31,20 +29,18 @@ class ProviderPage extends StatelessWidget {
         title: Text('Provider'),
       ),
       body: Center(
-        child: Column(
-          children: [
-            _myConsumer(),
-            _myConsumer(),
-            _myConsumer(),
-            _myConsumer(),
-            _consumerText(),
-          ],
-        ),
+        child: Column(children: [
+          _myConsumer(),
+          _myConsumer(),
+          _myConsumer(),
+          _myConsumer(),
+          _consumerText(),
+        ],),
       ),
     );
   }
 
-  _consumerText() {
+  _consumerText(){
     return Consumer(
       builder: (_, ref, __) {
         Widget widgetText = ref.watch(textProvider);
@@ -53,7 +49,7 @@ class ProviderPage extends StatelessWidget {
     );
   }
 
-  _myConsumer() {
+  _myConsumer(){
     return Consumer(
       builder: (context, ref, child) {
         final number = ref.watch(numberProvider).toString();

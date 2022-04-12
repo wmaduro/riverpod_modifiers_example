@@ -1,1 +1,0 @@
-flutter driver --driver=test_driver/integration_test_driver.dart --target=integration_test/app_login_test.dart
