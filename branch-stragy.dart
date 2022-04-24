@@ -1,0 +1,9 @@
+class Mad {
+  final String field1;
+
+  Mad(this.field1);
+
+  void calc1() {
+    final a = 100 * 100;
+  }
+}
