@@ -1,4 +1,5 @@
 class Mad {
+  //bug1 - fixed
   final String field1;
 
   Mad(this.field1);
