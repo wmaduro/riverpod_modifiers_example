@@ -9,6 +9,6 @@ class Mad {
   }
 
   void calc1feature1() {
-    final a = 100 * 200;//BUG2
+    final a = 100 * 400; //BUG4
   }
 }
