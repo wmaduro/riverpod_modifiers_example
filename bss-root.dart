@@ -4,6 +4,6 @@ class BssRoot {
   BssRoot(this.field1);
 
   void bbsrootfunc1(){
-    final a = 10*30;//BUG1.1
+    final a = 10*50;//BUG2
   }
 }
